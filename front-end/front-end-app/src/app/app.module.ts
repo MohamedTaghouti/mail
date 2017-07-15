@@ -15,6 +15,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {AuthenticationService} from './authentication.service';
 import {CanActivateAuthGuard} from './can-activate.authguard';
+import {TRANSLATION_PROVIDERS, TranslateService, TranslatePipe} from "./translate";
+
 
 
 const appRoutes: Routes = [
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     FooterComponent,
     BodyComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [UserService, AuthenticationService, CanActivateAuthGuard],
+  providers: [UserService, AuthenticationService, TRANSLATION_PROVIDERS, TranslateService, CanActivateAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
